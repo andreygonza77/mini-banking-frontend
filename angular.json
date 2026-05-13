@@ -54,12 +54,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "mini-banking-frontend:build:production"
-            },
-            "options": {
-              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "buildTarget": "mini-banking-frontend:build:development"

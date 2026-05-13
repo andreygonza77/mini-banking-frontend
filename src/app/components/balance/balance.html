@@ -1,2 +1,4 @@
 <h3>Current Balance:</h3>
 <p>Here you can see your current account balance:</p>
+<p *ngIf="balance"> € {{ balance.balanceAfter}}</p>
+<p *ngIf="!balance">Loading...</p>
