@@ -1,0 +1,8 @@
+{
+  "/accounts": {
+    "target": "http://localhost:80",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
