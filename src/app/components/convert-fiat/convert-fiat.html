@@ -1,10 +1,20 @@
 <h3>Convert to Fiat</h3>
-<p>Insert amount to convert into Fiat</p>
-<input type="number" placeholder="Amount"> 
-<p>To convert in: -- </p>
-<select>
+<p>Select a vault to convert to Fiat</p>
+
+<p>To convert in:</p>
+<select [ngModel]="target()" (ngModelChange)="target.set($event)">
     <option value="USD">US Dollar (USD)</option>
-    <option value="EUR">Euro (EUR)</option>
     <option value="GBP">British Pound (GBP)</option>
+    <option value="JPY">Japanese Yen (JPY)</option>
+    <option value="CHF">Swiss Franc (CHF)</option>
+    <option value="AUD">Australian Dollar (AUD)</option>
+    <option value="CNY">Chinese Yuan (CNY)</option>
+    
+    
 </select>
-<button>Convert</button>
+
+<button (click)="onConvert()" [disabled]="isLoading()">
+  {{ isLoading() ? 'Converting...' : 'Convert' }}
+</button>
+<p *ngIf="result()"> {{ result() }}</p>
+<p *ngIf="error()" class="error">{{ error() }}</p>

@@ -22,7 +22,7 @@ export class MiniBanking {
     const request = `/1/transactions/${movementId}`;
     return fetch(this.API_URL + request).then((response) => response.json());
   }
-
+  
   setDeposit(amount: number, description: string) {
     const request = `/1/deposits`;
     return fetch(this.API_URL + request, {
@@ -44,4 +44,10 @@ export class MiniBanking {
       body: JSON.stringify({ amount, description }),
     }).then((response) => response.json());
   }
+
+  convertToFiat(currency: string) {
+    const request = `/1/balance/convert/fiat?to=${currency}`;
+    return fetch(this.API_URL + request).then((response) => response.json());
+  }
+
 }
