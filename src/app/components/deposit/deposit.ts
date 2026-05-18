@@ -31,7 +31,7 @@ export class Deposit {
     this.miniBanking.setDeposit(this.amount()!)
       .then((response) => {
         console.log('Deposit response:', response);
-        this.message.set(response.message + ' Deposit successful!');
+        this.message.set(response.message + ' Deposit has been processed!');
         this.isSuccess.set(true);
         this.amount.set(null);
         this.description.set('');
