@@ -12,7 +12,17 @@ export class MiniBanking {
   }
 
   getBalance() {
-    this.request = "/1/balance";
+    this.request = `/1/balance`;
+    return fetch(this.API_URL+this.request).then((response) => response.json());
+  }
+
+  getMovements() {
+    this.request = `/1/transactions`;
+    return fetch(this.API_URL+this.request).then((response) => response.json());
+  }
+
+  getMovementDetails(movementId: number) {
+    this.request = `/1/transactions/${movementId}`;
     return fetch(this.API_URL+this.request).then((response) => response.json());
   }
 }

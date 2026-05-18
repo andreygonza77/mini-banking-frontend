@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { MiniBanking } from '../../services/mini-banking';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './balance.css',
 })
 export class Balance implements OnInit {
-  balance: any;
+  balance = signal<any[] | null>(null);
 
   constructor(private miniBanking: MiniBanking) {}
 
@@ -21,7 +21,7 @@ export class Balance implements OnInit {
     this.miniBanking.getBalance()
       .then((data) => {
         console.log('Balance response:', data);
-        this.balance = data;
+        this.balance.set(data);
       })
     .catch((error) => {
         console.error('Error fetching balance:', error);
