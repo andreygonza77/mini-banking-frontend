@@ -1,0 +1,32 @@
+<section class="login-page">
+  <div class="login-card">
+    <h1>Login</h1>
+    <p>Use your account ID as username and created_at as login password.</p>
+
+    <form (ngSubmit)="onLogin()">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Account ID"
+        required
+      />
+
+      <label for="password">Login</label>
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="created_at value"
+        required
+      />
+
+      <button type="submit" [disabled]="isLoading">{{ isLoading ? 'Signing in...' : 'Sign In' }}</button>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+    </form>
+  </div>
+</section>

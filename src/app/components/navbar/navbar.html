@@ -1,10 +1,18 @@
 <nav class="navbar">
     <div class="navbar-container">
-        <!-- Logo & Brand -->
         <div class="navbar-brand">
-            <a routerLink="/" class="navbar-logo">
+            <a routerLink="/balance" class="navbar-logo">
                 <span class="logo-text">💳 Mini-Banking</span>
             </a>
+        </div>
+
+        <div class="navbar-status">
+            <span *ngIf="miniBanking.isLoggedIn(); else notAuthenticated">
+                Account #{{ miniBanking.accountId }}
+            </span>
+            <ng-template #notAuthenticated>
+                <a routerLink="/login" class="navbar-link">Login</a>
+            </ng-template>
         </div>
 
         <button class="navbar-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen">
@@ -13,7 +21,7 @@
             <span class="hamburger"></span>
         </button>
 
-        <div class="navbar-menu" [class.active]="menuOpen">
+        <div class="navbar-menu" [class.active]="menuOpen" *ngIf="miniBanking.isLoggedIn()">
             <ul class="navbar-list">
                 <li class="navbar-item">
                     <a routerLink="/deposit" class="navbar-link" (click)="menuOpen = false">Register Deposit</a>
@@ -32,6 +40,9 @@
                 </li>
                 <li class="navbar-item">
                     <a routerLink="/convert-crypto" class="navbar-link" (click)="menuOpen = false">Convert Crypto</a>
+                </li>
+                <li class="navbar-item logout-item">
+                    <button type="button" class="navbar-link navbar-logout" (click)="logout()">Logout</button>
                 </li>
             </ul>
         </div>
