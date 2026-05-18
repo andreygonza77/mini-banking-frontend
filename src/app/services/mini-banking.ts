@@ -25,4 +25,15 @@ export class MiniBanking {
     this.request = `/1/transactions/${movementId}`;
     return fetch(this.API_URL+this.request).then((response) => response.json());
   }
+
+  setDeposit(amount: number) {
+    this.request = `/1/deposits`;
+    return fetch(this.API_URL + this.request, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ amount }),
+    }).then((response) => response.json());
+  }
 }

@@ -1,4 +1,23 @@
 <h3>Register Deposit</h3>
 <p>Insert the amount to deposit:</p>
-<input type="number" placeholder="Amount">
-<button>Deposit</button>
+<input 
+  type="number" 
+  placeholder="Amount" 
+  [(ngModel)]="amount" 
+  [disabled]="isLoading()"
+>
+<input 
+  type="string" 
+  placeholder="Cause description" 
+  [(ngModel)]="description" 
+  [disabled]="isLoading()"
+>
+<button (click)="onDeposit()" [disabled]="isLoading()">
+  {{ isLoading() ? 'Processing...' : 'Deposit' }}
+</button>
+
+@if (message()) {
+  <p [ngClass]="isSuccess() ? 'success' : 'error'">
+    {{ message() }}
+  </p>
+}
