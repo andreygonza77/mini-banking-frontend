@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './movement-details.css',
 })
 export class MovementDetails implements OnInit {
-  movement = signal<any[] | null>(null);
+  movement = signal<any | null>(null);
 
   constructor(private route: ActivatedRoute, private miniBanking: MiniBanking) {}
 

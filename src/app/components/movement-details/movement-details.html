@@ -1,10 +1,10 @@
 <h3>Movement detail:</h3>
 
-<div *ngIf="movement; else loading">
-	<p>Amount: € {{ movement.amount }}</p>
-	<p>Date: {{ movement.created_at }}</p>
-	<p>Description: {{ movement.description }}</p>
-    <p>Type: {{ movement.type }}</p>
+<div *ngIf="movement(); else loading">
+	<p>Amount: € {{ movement().amount }}</p>
+	<p>Date: {{ movement().created_at }}</p>
+	<p>Description: {{ movement().description }}</p>
+    <p>Type: {{ movement().type }}</p>
 </div>
 
 <ng-template #loading>
