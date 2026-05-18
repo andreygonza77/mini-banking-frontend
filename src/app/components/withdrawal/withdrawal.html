@@ -1,4 +1,23 @@
 <h3>Register Withdrawal</h3>
 <p>Insert the amount to withdraw:</p>
-<input type="number" placeholder="Amount">
-<button>Withdraw</button>
+<input
+  type="number"
+  placeholder="Amount"
+  [(ngModel)]="amount"
+  [disabled]="isLoading()"
+>
+<input
+  type="text"
+  placeholder="Cause description"
+  [(ngModel)]="description"
+  [disabled]="isLoading()"
+>
+<button (click)="onWithdraw()" [disabled]="isLoading()">
+  {{ isLoading() ? 'Processing...' : 'Withdraw' }}
+</button>
+
+@if (message()) {
+  <p [ngClass]="isSuccess() ? 'success' : 'error'">
+    {{ message() }}
+  </p>
+}

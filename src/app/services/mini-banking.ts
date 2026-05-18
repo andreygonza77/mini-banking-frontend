@@ -23,14 +23,25 @@ export class MiniBanking {
     return fetch(this.API_URL + request).then((response) => response.json());
   }
 
-  setDeposit(amount: number) {
+  setDeposit(amount: number, description: string) {
     const request = `/1/deposits`;
     return fetch(this.API_URL + request, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ amount }),
+      body: JSON.stringify({ amount, description }),
+    }).then((response) => response.json());
+  }
+
+  withdraw(amount: number, description: string) {
+    const request = `/1/withdrawals`;
+    return fetch(this.API_URL + request, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ amount, description }),
     }).then((response) => response.json());
   }
 }

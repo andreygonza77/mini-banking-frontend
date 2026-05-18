@@ -25,13 +25,19 @@ export class Deposit {
       return;
     }
 
+    if (!this.description().trim()) {
+      this.message.set('Please enter a deposit description');
+      this.isSuccess.set(false);
+      return;
+    }
+
     this.isLoading.set(true);
     this.message.set('');
 
-    this.miniBanking.setDeposit(this.amount()!)
+    this.miniBanking.setDeposit(this.amount()!, this.description().trim())
       .then((response) => {
         console.log('Deposit response:', response);
-        this.message.set(response.message + ' Deposit has been processed!');
+        this.message.set('Deposit successful!');
         this.isSuccess.set(true);
         this.amount.set(null);
         this.description.set('');
