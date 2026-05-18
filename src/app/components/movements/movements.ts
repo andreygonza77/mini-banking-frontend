@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MiniBanking } from '../../services/mini-banking';
 import { CommonModule } from '@angular/common';
 
@@ -9,18 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './movements.css',
 })
 export class Movements {
-  movements: any;
+   
+  movements = signal<any[] | null>(null);
   constructor(private miniBanking: MiniBanking) {}
 
   ngOnInit() {
-    this.miniBanking.getMovements().then((data) => {
-      console.log('Movements response:', data);
-    });
+    this.getMovements();
   }
 
   getMovements() {
     this.miniBanking.getMovements().then((data) => {
       console.log('Movements response:', data); 
+      this.movements.set(data);
     } ).catch((error) => {
       console.error('Error fetching movements:', error);
     });

@@ -1,7 +1,7 @@
 <h3>List of movements</h3>
 <p>Here you can see the list of your recent movements:</p>
 <ul>
-    <li *ngFor="let movement of movements"> <!--Movement details-->
-        <a href="" target="_blank">{{ movement.description }} - € {{ movement.amount }} ({{ movement.date }}) </a>
+    <li *ngFor="let movement of movements()"> <!--Movement details-->
+        <a href="" target="_blank">[{{movement.id}}] {{ movement.description }} - € {{ movement.amount }} ({{ movement.created_at }}) </a>
     </li>
 </ul>
