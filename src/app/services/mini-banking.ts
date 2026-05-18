@@ -50,4 +50,8 @@ export class MiniBanking {
     return fetch(this.API_URL + request).then((response) => response.json());
   }
 
+  convertToCrypto(currency: string) {
+    const request = `/1/balance/convert/crypto?to=${currency}`;
+    return fetch(this.API_URL + request).then((response) => response.json());
+  }
 }

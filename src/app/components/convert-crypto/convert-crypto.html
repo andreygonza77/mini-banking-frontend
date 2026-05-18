@@ -1,10 +1,19 @@
 <h3>Convert to Cryptocurrency</h3>
-<p>Insert amount to convert into CRYPTO</p>
-<input type="number" placeholder="Amount"> 
-<p>To convert in: -- </p>
-<select>
+<p>Select a vault to convert to Cryptocurrency</p>
+
+<p>To convert in:</p>
+<select [ngModel]="target()" (ngModelChange)="target.set($event)">
     <option value="BTC">Bitcoin (BTC)</option>
     <option value="ETH">Ethereum (ETH)</option>
     <option value="DOGE">Dogecoin (DOGE)</option>
+    <option value="ADA">Cardano (ADA)</option>
+    <option value="XRP">Ripple (XRP)</option>
+    <option value="LTC">Litecoin (LTC)</option>
+    <option value="BCH">Bitcoin Cash (BCH)</option>
 </select>
-<button>Convert</button>
+
+<button (click)="onConvert()" [disabled]="isLoading()">
+  {{ isLoading() ? 'Converting...' : 'Convert' }}
+</button>
+<p *ngIf="result()"> {{ result() }}</p>
+<p *ngIf="error()" class="error">{{ error() }}</p>

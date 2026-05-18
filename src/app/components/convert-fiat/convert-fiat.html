@@ -1,8 +1,9 @@
 <h3>Convert to Fiat</h3>
-<p>Select a vault to convert to Fiat</p>
+<p>Select a vault to convert into Fiat</p>
 
 <p>To convert in:</p>
 <select [ngModel]="target()" (ngModelChange)="target.set($event)">
+    <option value="INR">Indian Rupee (INR)</option>
     <option value="USD">US Dollar (USD)</option>
     <option value="GBP">British Pound (GBP)</option>
     <option value="JPY">Japanese Yen (JPY)</option>

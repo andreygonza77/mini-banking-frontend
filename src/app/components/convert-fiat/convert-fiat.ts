@@ -10,7 +10,7 @@ import { MiniBanking } from '../../services/mini-banking';
   styleUrl: './convert-fiat.css',
 })
 export class ConvertFiat {
-  target = signal<'USD' | 'EUR' | 'GBP' | 'FRANKFURT'>('EUR');
+  target = signal<'USD' | 'EUR' | 'GBP' | 'FRANKFURT'>('USD');
   result = signal<string>('');
   error = signal<string>('');
   isLoading = signal<boolean>(false);
@@ -22,8 +22,8 @@ export class ConvertFiat {
     this.error.set('');
     this.result.set('');
 
-    const currency = this.target() === 'FRANKFURT' ? 'EUR' : this.target();
-    const label = this.target() === 'FRANKFURT' ? 'Frankfurt (EUR)' : this.target();
+    const currency = this.target() === 'FRANKFURT' ? 'USD' : this.target();
+    const label = this.target() === 'FRANKFURT' ? 'Frankfurt (USD)' : this.target();
 
     this.miniBanking.convertToFiat(currency)
       .then((response) => {
