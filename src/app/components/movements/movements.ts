@@ -26,4 +26,22 @@ export class Movements {
       console.error('Error fetching movements:', error);
     });
   }
+
+  deleteLastMovement() {
+    const movements = this.movements();
+    if (movements && movements.length > 0) {
+      const lastMovement = movements[0];
+      console.log('Attempting to delete movement:', lastMovement);
+      
+      this.miniBanking.deleteMovement(lastMovement.id)
+        .then(() => {
+          console.log('Delete successful');
+          return this.getMovements();
+        })
+        .catch((error) => {
+          console.error('Error during deletion:', error);
+          this.getMovements();
+        });
+    }
+  }
 }

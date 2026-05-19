@@ -85,6 +85,19 @@ export class MiniBanking {
     const request = `/${accountId}/transactions/${movementId}`;
     return fetch(this.API_URL + request).then((response) => response.json());
   }
+
+  deleteMovement(movementId: number) {
+    const accountId = this.ensureLoggedIn();
+    const request = `/${accountId}/transactions/${movementId}`;
+    return fetch(this.API_URL + request, {
+      method: 'DELETE',
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error("Errore durante l'eliminazione del movimento.");
+      }
+      return response;
+    });
+  }
   
   setDeposit(amount: number, description: string) {
     const accountId = this.ensureLoggedIn();
