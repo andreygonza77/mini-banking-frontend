@@ -37,7 +37,7 @@ export class Login {
     this.isLoading = true;
     this.miniBanking.login(username, password)
     .then(() => {
-        this.router.navigate(['/balance']);
+        this.router.navigate(['/home']);
     })
     .catch((err) => {
         console.error('Login error:', err);
