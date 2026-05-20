@@ -1,19 +1,30 @@
-<h3>Convert to Cryptocurrency</h3>
-<p>Select a vault to convert to Cryptocurrency</p>
+<div class="card animate-fade-in max-w-form">
+  <h3>Convert to Cryptocurrency</h3>
+  <p>Select a target cryptocurrency for conversion.</p>
 
-<p>To convert in:</p>
-<select [ngModel]="target()" (ngModelChange)="target.set($event)">
-    <option value="BTC">Bitcoin (BTC)</option>
-    <option value="ETH">Ethereum (ETH)</option>
-    <option value="DOGE">Dogecoin (DOGE)</option>
-    <option value="ADA">Cardano (ADA)</option>
-    <option value="XRP">Ripple (XRP)</option>
-    <option value="LTC">Litecoin (LTC)</option>
-    <option value="BCH">Bitcoin Cash (BCH)</option>
-</select>
+  <div class="form-group">
+    <label for="crypto-target">Target Cryptocurrency</label>
+    <select id="crypto-target" [ngModel]="target()" (ngModelChange)="target.set($event)">
+      <option value="BTC">Bitcoin (BTC)</option>
+      <option value="ETH">Ethereum (ETH)</option>
+      <option value="DOGE">Dogecoin (DOGE)</option>
+      <option value="ADA">Cardano (ADA)</option>
+      <option value="XRP">Ripple (XRP)</option>
+      <option value="LTC">Litecoin (LTC)</option>
+      <option value="BCH">Bitcoin Cash (BCH)</option>
+    </select>
+  </div>
 
-<button (click)="onConvert()" [disabled]="isLoading()">
-  {{ isLoading() ? 'Converting...' : 'Convert' }}
-</button>
-<p *ngIf="result()"> {{ result() }}</p>
-<p *ngIf="error()" class="error">{{ error() }}</p>
+  <button class="btn btn-primary w-full" (click)="onConvert()" [disabled]="isLoading()">
+    {{ isLoading() ? 'Converting...' : 'Convert' }}
+  </button>
+
+  <div class="status-message animate-fade-in success" *ngIf="result()">
+    {{ result() }}
+  </div>
+
+  <div class="status-message animate-fade-in error" *ngIf="error()">
+    {{ error() }}
+  </div>
+</div>
+

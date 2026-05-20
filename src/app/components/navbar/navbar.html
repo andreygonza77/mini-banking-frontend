@@ -7,9 +7,6 @@
         </div>
 
         <div class="navbar-status">
-            <span *ngIf="miniBanking.isLoggedIn(); else notAuthenticated">
-                Account #{{ miniBanking.accountId }}
-            </span>
             <ng-template #notAuthenticated>
                 <a routerLink="/login" class="navbar-link">Login</a>
             </ng-template>

@@ -1,23 +1,36 @@
-<h3>Register Withdrawal</h3>
-<p>Insert the amount to withdraw:</p>
-<input
-  type="number"
-  placeholder="Amount"
-  [(ngModel)]="amount"
-  [disabled]="isLoading()"
->
-<input
-  type="text"
-  placeholder="Cause description"
-  [(ngModel)]="description"
-  [disabled]="isLoading()"
->
-<button (click)="onWithdraw()" [disabled]="isLoading()">
-  {{ isLoading() ? 'Processing...' : 'Withdraw' }}
-</button>
+<div class="card animate-fade-in max-w-form">
+  <h3>Register Withdrawal</h3>
+  <p>Securely withdraw funds from your account.</p>
 
-@if (message()) {
-  <p [ngClass]="isSuccess() ? 'success' : 'error'">
-    {{ message() }}
-  </p>
-}
+  <div class="form-group">
+    <label for="withdraw-amount">Amount (€)</label>
+    <input 
+      id="withdraw-amount"
+      type="number" 
+      placeholder="0.00" 
+      [(ngModel)]="amount" 
+      [disabled]="isLoading()"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="withdraw-desc">Description</label>
+    <input 
+      id="withdraw-desc"
+      type="text" 
+      placeholder="Reason for withdrawal" 
+      [(ngModel)]="description" 
+      [disabled]="isLoading()"
+    >
+  </div>
+
+  <button class="btn btn-primary w-full" (click)="onWithdraw()" [disabled]="isLoading()">
+    {{ isLoading() ? 'Processing...' : 'Register Withdrawal' }}
+  </button>
+
+  @if (message()) {
+    <p class="status-message animate-fade-in" [ngClass]="isSuccess() ? 'success' : 'error'">
+      {{ message() }}
+    </p>
+  }
+</div>

@@ -1,13 +1,38 @@
-<h3>Movement detail:</h3>
+<div class="card animate-fade-in max-w-form">
+  <div class="detail-header">
+    <h3>Movement Details</h3>
+    <a routerLink="/movements" class="btn btn-secondary btn-sm">Back to List</a>
+  </div>
 
-<div *ngIf="movement(); else loading">
-	<p>Amount: € {{ movement().amount }}</p>
-	<p>Date: {{ movement().created_at }}</p>
-	<p>Description: {{ movement().description }}</p>
-    <p>Type: {{ movement().type }}</p>
+  <div *ngIf="movement(); else loading" class="detail-content">
+    <div class="detail-row">
+      <span class="detail-label">Amount</span>
+      <span class="detail-value amount" [class.negative]="movement().amount < 0">
+        {{ movement().amount > 0 ? '+' : '' }}{{ movement().amount }} €
+      </span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="detail-label">Date</span>
+      <span class="detail-value">{{ movement().created_at | date:'medium' }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="detail-label">Type</span>
+      <span class="detail-value badge">{{ movement().type }}</span>
+    </div>
+
+    <div class="detail-row description">
+      <span class="detail-label">Description</span>
+      <p class="detail-value text-desc">{{ movement().description }}</p>
+    </div>
+  </div>
 </div>
 
 <ng-template #loading>
-	<p>Loading...</p>
+  <div class="loading-state">
+    <p>Loading movement details...</p>
+  </div>
 </ng-template>
+
 

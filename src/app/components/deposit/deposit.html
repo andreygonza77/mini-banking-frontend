@@ -1,23 +1,36 @@
-<h3>Register Deposit</h3>
-<p>Insert the amount to deposit:</p>
-<input 
-  type="number" 
-  placeholder="Amount" 
-  [(ngModel)]="amount" 
-  [disabled]="isLoading()"
->
-<input 
-  type="text" 
-  placeholder="Cause description" 
-  [(ngModel)]="description" 
-  [disabled]="isLoading()"
->
-<button (click)="onDeposit()" [disabled]="isLoading()">
-  {{ isLoading() ? 'Processing...' : 'Deposit' }}
-</button>
+<div class="card animate-fade-in max-w-form">
+  <h3>Register Deposit</h3>
+  <p>Securely add funds to your account.</p>
 
-@if (message()) {
-  <p [ngClass]="isSuccess() ? 'success' : 'error'">
-    {{ message() }}
-  </p>
-}
+  <div class="form-group">
+    <label for="deposit-amount">Amount (€)</label>
+    <input 
+      id="deposit-amount"
+      type="number" 
+      placeholder="0.00" 
+      [(ngModel)]="amount" 
+      [disabled]="isLoading()"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="deposit-desc">Description</label>
+    <input 
+      id="deposit-desc"
+      type="text" 
+      placeholder="Reason for deposit" 
+      [(ngModel)]="description" 
+      [disabled]="isLoading()"
+    >
+  </div>
+
+  <button class="btn btn-primary w-full" (click)="onDeposit()" [disabled]="isLoading()">
+    {{ isLoading() ? 'Processing...' : 'Register Deposit' }}
+  </button>
+
+  @if (message()) {
+    <p class="status-message animate-fade-in" [ngClass]="isSuccess() ? 'success' : 'error'">
+      {{ message() }}
+    </p>
+  }
+</div>

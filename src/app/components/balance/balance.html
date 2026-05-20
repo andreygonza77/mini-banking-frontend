@@ -1,11 +1,17 @@
-<h3>Current Balance:</h3>
-<p>Here you can see your current account balance:</p>
-@if (balance(); as bal) {
-  @if (bal && bal.length > 0) {
-    <p> € {{ bal[0].balance_after }}</p>
-  } @else {
-    <p>No balance data available</p>
-  }
-} @else {
-  <p>Loading...</p>
-}
+<div class="card animate-fade-in">
+  <h3>Current Balance</h3>
+  <p>Here you can see your current account balance:</p>
+  
+  <div class="balance-display">
+    @if (balance(); as bal) {
+      @if (bal && bal.length > 0) {
+        <span class="currency">€</span>
+        <span class="amount">{{ bal[0].balance_after }}</span>
+      } @else {
+        <p>No balance data available</p>
+      }
+    } @else {
+      <p>Loading...</p>
+    }
+  </div>
+</div>

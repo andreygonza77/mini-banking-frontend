@@ -1,0 +1,23 @@
+.balance-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 3rem 1rem;
+  background: var(--bg);
+  border-radius: var(--radius);
+  margin-top: 2rem;
+}
+
+.currency {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.amount {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
