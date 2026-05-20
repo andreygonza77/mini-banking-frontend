@@ -8,6 +8,7 @@ import { Balance } from './components/balance/balance';
 import { ConvertFiat } from './components/convert-fiat/convert-fiat';
 import { ConvertCrypto } from './components/convert-crypto/convert-crypto';
 import { Login } from './components/login/login';
+import { Home } from './components/home/home';
 import { MiniBanking } from './services/mini-banking';
 
 const requireLogin = () => {
@@ -17,7 +18,7 @@ const requireLogin = () => {
 };
 
 export const routes: Routes = [
-    { path: '', component: Login },
+    { path: '', component: Home },
     { path: 'login', component: Login },
     { path: 'deposit', component: Deposit, canActivate: [requireLogin] },
     { path: 'withdrawal', component: Withdrawal, canActivate: [requireLogin] },
