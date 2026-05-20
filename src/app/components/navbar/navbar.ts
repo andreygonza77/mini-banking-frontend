@@ -12,11 +12,29 @@ import { MiniBanking } from '../../services/mini-banking';
 })
 export class Navbar {
   menuOpen = false;
+  isDarkMode = false;
 
-  constructor(public miniBanking: MiniBanking, private router: Router) {}
+  constructor(public miniBanking: MiniBanking, private router: Router) {
+    this.isDarkMode = localStorage.getItem('theme') === 'dark';
+    this.applyTheme();
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    this.applyTheme();
+  }
+
+  private applyTheme() {
+    if (this.isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
   }
 
   logout() {

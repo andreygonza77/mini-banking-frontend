@@ -1,9 +1,9 @@
 .footer {
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: var(--surface);
+  color: var(--text);
   padding: 4rem 1.5rem 2rem;
   margin-top: 4rem;
-  font-family: system-ui, -apple-system, sans-serif;
+  border-top: 1px solid var(--border);
 }
 
 .footer-container {
@@ -22,17 +22,17 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #3b82f6;
+  color: var(--primary);
 }
 
 .footer-description {
-  color: #94a3b8;
+  color: var(--text-muted);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .footer-section h4 {
-  color: #f8fafc;
+  color: var(--header);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -46,7 +46,7 @@
   bottom: -0.5rem;
   width: 2rem;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: var(--primary);
 }
 
 .footer-section ul {
@@ -59,7 +59,7 @@
 }
 
 .footer-section ul li a {
-  color: #94a3b8;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
@@ -67,12 +67,12 @@
 }
 
 .footer-section ul li a:hover {
-  color: #3b82f6;
+  color: var(--primary);
   transform: translateX(4px);
 }
 
 .footer-section p {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 0.75rem;
 }
@@ -89,26 +89,28 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background-color: #1e293b;
-  color: #f8fafc;
+  background-color: var(--bg);
+  color: var(--text);
   border-radius: 50%;
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 700;
   transition: all 0.3s ease;
+  border: 1px solid var(--border);
 }
 
 .social-link:hover {
-  background-color: #3b82f6;
+  background-color: var(--primary);
+  color: white;
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid var(--border);
   padding-top: 2rem;
   text-align: center;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 0.875rem;
 }
 

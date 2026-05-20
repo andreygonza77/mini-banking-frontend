@@ -7,6 +7,9 @@
         </div>
 
         <div class="navbar-status">
+            <button class="theme-toggle" (click)="toggleTheme()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+                {{ isDarkMode ? '☀️' : '🌙' }}
+            </button>
             <ng-template #notAuthenticated>
                 <a routerLink="/login" class="navbar-link">Login</a>
             </ng-template>

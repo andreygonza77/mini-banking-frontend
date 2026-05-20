@@ -7,6 +7,7 @@
   --surface: #ffffff;
   --text: #1e293b;
   --text-muted: #64748b;
+  --header: #0f172a;
   --border: #e2e8f0;
   --success: #10b981;
   --danger: #ef4444;
@@ -14,6 +15,31 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --radius: 0.75rem;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --nav-bg: linear-gradient(135deg, #1e3a8a, #2563eb);
+  --nav-text: #ffffff;
+  
+  /* Status backgrounds for light mode */
+  --success-bg: #ecfdf5;
+  --danger-bg: #fef2f2;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --header: #ffffff;
+  --border: #334155;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.6);
+  
+  --nav-bg: #1e293b;
+  --nav-text: #f1f5f9;
+  
+  /* Status backgrounds for dark mode */
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --danger-bg: rgba(239, 68, 68, 0.1);
 }
 
 * {
@@ -31,7 +57,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #0f172a;
+  color: var(--header);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -173,13 +199,13 @@ input:focus {
 }
 
 .status-message.success {
-  background-color: #ecfdf5;
+  background-color: var(--success-bg);
   color: var(--success);
   border: 1px solid #10b98133;
 }
 
 .status-message.error {
-  background-color: #fef2f2;
+  background-color: var(--danger-bg);
   color: var(--danger);
   border: 1px solid #ef444433;
 }
