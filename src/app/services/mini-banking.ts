@@ -35,26 +35,26 @@ export class MiniBanking {
   }
 
   login(username: string, password: string) {
-  const accountId = Number(username);
-  if (Number.isNaN(accountId) || accountId <= 0) {
-    return Promise.reject(new Error('Account ID must be a valid number.'));
-  }
+    const accountId = Number(username);
+    if (Number.isNaN(accountId) || accountId <= 0) {
+      return Promise.reject(new Error('Account ID must be a valid number.'));
+    }
 
-  return fetch(`${this.API_URL}/${accountId}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Account not found.');
-      }
-      return response.json();
-    })
-    .then((account: any) => {
-      if (!account || account.error || account.created_at !== password) {
-        throw new Error('Invalid login credentials.');
-      }
-      this.setAccountId(accountId);
-      return account;
-    });
-}
+    return fetch(`${this.API_URL}/${accountId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Account not found.');
+        }
+        return response.json();
+      })
+      .then((account: any) => {
+        if (!account || account.error || account.created_at !== password) {
+          throw new Error('Invalid login credentials.');
+        }
+        this.setAccountId(accountId);
+        return account;
+      });
+  }
 
   logout() {
     this.setAccountId(null);
