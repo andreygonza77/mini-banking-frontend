@@ -7,8 +7,8 @@
   <div *ngIf="movement(); else loading" class="detail-content">
     <div class="detail-row">
       <span class="detail-label">Amount</span>
-      <span class="detail-value amount" [class.negative]="movement().amount < 0">
-        {{ movement().amount > 0 ? '+' : '' }}{{ movement().amount }} €
+      <span class="detail-value amount" [class.negative]="movement().type === 'withdrawal' || movement().amount < 0">
+        {{ (movement().type === 'withdrawal' || movement().amount < 0) ? '-' : '+' }}{{ movement().amount < 0 ? -movement().amount : movement().amount }} €
       </span>
     </div>
     

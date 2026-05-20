@@ -16,8 +16,8 @@
           <span class="movement-desc">{{ movement.description }}</span>
         </div>
         <div class="movement-meta">
-          <span class="movement-amount" [class.negative]="movement.amount < 0">
-            {{ movement.amount > 0 ? '+' : '' }}{{ movement.amount }} €
+          <span class="movement-amount" [class.negative]="movement.type === 'withdrawal' || movement.amount < 0">
+            {{ (movement.type === 'withdrawal' || movement.amount < 0) ? '-' : '+' }}{{ movement.amount < 0 ? -movement.amount : movement.amount }} €
           </span>
           <span class="movement-date">{{ movement.created_at | date:'short' }}</span>
         </div>
