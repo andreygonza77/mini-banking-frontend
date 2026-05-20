@@ -1,59 +1,56 @@
-# MiniBankingFrontend
+# Mini Banking Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+A modern, responsive, and secure home banking frontend application built with the Angular framework. This project serves as the user interface for the [mini-banking-api](http) backend, which is powered by the PHP Slim framework.
 
-## Development server
+## 🚀 Key Features
 
-To start a local development server, run:
+*   **Transaction Management**: Interactive forms to perform wire transfers and mobile top-ups with real-time data validation.
+*   **Transaction History**: A searchable history list filterable by date, category (e.g., expenses, income), and text keywords.
 
-```bash
-ng serve
-```
+--
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tech Stack
 
-## Code scaffolding
+*   **Framework**: Angular (v17+)
+*   **Styling & UI**: --
+*   **Backend Integration**: HttpClient modules communicating with PHP Slim API endpoints
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📦 Prerequisites
 
-```bash
-ng generate component component-name
-```
+Before running the application, ensure you have the following installed:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+*   [Node.js](https://nodejs.org) (LTS version recommended)
+*   [Angular CLI](https://angular.io) (`npm install -g @angular/cli`)
+*   Running instance of the [mini-banking-api](https://github.com/andreygonza77/mini-banking-api.git) backend.
 
-```bash
-ng generate --help
-```
+## 🔧 Installation & Setup
 
-## Building
+Follow these steps to set up the project locally:
 
-To build the project run:
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/andreygonza77 mini-banking-frontend.git
+    cd mini-banking-frontend
+    ```
 
-```bash
-ng build
-```
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+3.  **Configure the Backend URL**
+    
+    Follow the backend repository instructions
 
-## Running unit tests
+4.  **Start the development server**
+    ```bash
+    ng serve
+    ```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+5.  **Open the app**
+    Navigate to `http://localhost:4200/` in your browser. The application will automatically reload if you change any of the source files.
 
-```bash
-ng test
-```
+## 🌐 API Interaction Notes
 
-## Running end-to-end tests
+This frontend expects the PHP Slim backend to provide standard RESTful endpoints. Ensure your `mini-banking-api` instance is up, running, and has **CORS enabled** to allow requests coming from `http://localhost:4200`.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
