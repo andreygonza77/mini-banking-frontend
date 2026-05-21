@@ -19,7 +19,6 @@
   --nav-bg: linear-gradient(135deg, #1e3a8a, #2563eb);
   --nav-text: #ffffff;
   
-  /* Status backgrounds for light mode */
   --success-bg: #ecfdf5;
   --danger-bg: #fef2f2;
 }
@@ -37,7 +36,6 @@ body.dark {
   --nav-bg: #1e293b;
   --nav-text: #f1f5f9;
   
-  /* Status backgrounds for dark mode */
   --success-bg: rgba(16, 185, 129, 0.1);
   --danger-bg: rgba(239, 68, 68, 0.1);
 }
@@ -77,8 +75,6 @@ a {
 a:hover {
   color: var(--primary-hover);
 }
-
-/* Base Components */
 
 .card {
   background: var(--surface);
@@ -131,8 +127,6 @@ a:hover {
   border-color: var(--secondary);
 }
 
-/* Forms */
-
 label {
   display: block;
   font-size: 0.875rem;
@@ -159,8 +153,6 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Sections */
-
 .section-header {
   text-align: center;
   max-width: 700px;
@@ -171,16 +163,11 @@ input:focus {
   font-size: 2.25rem;
 }
 
-/* Grid Layouts */
-
 .grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
-
-/* Utilities */
-
 .max-w-form {
   max-width: 500px;
   margin: 0 auto;
@@ -209,8 +196,6 @@ input:focus {
   color: var(--danger);
   border: 1px solid #ef444433;
 }
-
-/* Animations */
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
