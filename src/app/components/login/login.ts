@@ -12,8 +12,8 @@ import { MiniBanking } from '../../services/mini-banking';
   styleUrl: './login.css',
 })
 export class Login {
-  username = '1';
-  password = '2026-04-24 18:03:58';
+  username = '';
+  password = '';
   error = '';
   isLoading = false;
 

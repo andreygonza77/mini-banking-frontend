@@ -8,7 +8,8 @@
         <span class="currency">€</span>
         <span class="amount">{{ bal[0].balance_after }}</span>
       } @else {
-        <p>No balance data available</p>
+        <span class="currency">€</span>
+        <span class="amount">{{ 0 }}</span>
       }
     } @else {
       <p>Loading...</p>
